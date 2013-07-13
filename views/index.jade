@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title} - this app is worktime recorder
+  
+  #actions
+    button#begin(disabled=true) begin
+    button#end(disabled=true) end
+  
+  br
+  br
+  
+  h3 records
+  table#records
+    tr
+      th start
+      th end
+    //
+      tr
+        td 2013-07-12 10:00:00
+        td 2013-07-12 19:00:00
+ 
+  a(href="javascript:clear") clear
