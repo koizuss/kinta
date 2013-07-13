@@ -3,14 +3,16 @@ extends layout
 block content
   h1= title
   p Welcome to #{title} - this app is worktime recorder
-  
+  p Kinta use localStorage for recording. therefore par browser have records.
+
+
   #actions
     button#begin(disabled=true) begin
     button#end(disabled=true) end
-  
+
   br
   br
-  
+
   h3 records
   table#records
     tr
@@ -20,7 +22,7 @@ block content
       tr
         td 2013-07-12 10:00:00
         td 2013-07-12 19:00:00
- 
+
   br
-  
+
   a#clear(href="javascript:void(0)") clear
