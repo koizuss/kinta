@@ -21,9 +21,8 @@ window.addEventListener("DOMContentLoaded", function(){
     }      
     updateRecord(record, trRecord);
     recordsView.appendChild(trRecord);
-  };
-  
-  var toggleBeginEnd = function(event) {
+  }
+  , toggleBeginEnd = function(event) {
     var recording = event  ? true : false
     , now = new Date().toString()
     , lastRecord = records[records.length - 1] || { end: true }
@@ -46,15 +45,17 @@ window.addEventListener("DOMContentLoaded", function(){
     
     begin.disabled = working;
     end.disabled = !working;
+  }
+  , clear = function() {
+    if(!confirm('clear all records. ok??')) return;
+    records = [];
+    saveStorage(records);
+    location.reload();
   };
 
-  begin.addEventListener("click", function(){
-    toggleBeginEnd(true);
-  }, false);
-  
-  end.addEventListener("click", function(){
-    toggleBeginEnd(true);
-  }, false);
+  begin.addEventListener("click", toggleBeginEnd, false);
+  end.addEventListener("click", toggleBeginEnd, false);
+  document.getElementById('clear').addEventListener("click", clear, false);
   
   for(var i = 0; i < records.length; i++) {
     addRecord(records[i]);
